@@ -14,7 +14,26 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  ?>
 
 <div class="inner-center main">
-  <div class="content-inside">
+<?php if (!empty($this->options->topbarBlock)): ?>
+    <div id="topbar">
+        <div class="inner">
+                <?php if (!empty($this->options->topbarBlock) && in_array('ShowTopAd', $this->options->topbarBlock)): ?>
+                    <?php if ($this->options->topAd): ?>
+                    <img src="<?php $this->options->themeUrl('img/notice.png'); ?>" alt="公告：" /><a><?php $this->options->topAd(); ?></a>
+                    <?php endif; ?>
+                <?php endif; ?>
+
+                <?php if (!empty($this->options->topbarBlock) && in_array('ShowAdmin', $this->options->topbarBlock)): ?>
+                    <?php if($this->user->hasLogin()): ?>
+                    <a class="f_r" href="<?php $this->options->adminUrl(); ?>"><?php _e('进入后台'); ?> (<?php $this->user->screenName(); ?>)</a>
+                    <a class="f_r" href="<?php $this->options->logoutUrl(); ?>"><?php _e('安全退出 &nbsp;&nbsp;'); ?></a></li>
+                    <?php else: ?>
+                    <a class="f_r" href="<?php $this->options->adminUrl('login.php'); ?>"><?php _e('安全登录'); ?></a>
+                    <?php endif; ?>
+                <?php endif; ?>
+        </div>
+</div><?php endif; ?>
+ <div class="content-inside">
     <!-- slogan start -->
     <div class="logo-box">
       <div class="logo-left">

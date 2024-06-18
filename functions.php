@@ -13,6 +13,16 @@ function themeConfig($form) {
 	
     $tongjiCode = new Typecho_Widget_Helper_Form_Element_Textarea('tongjiCode', NULL, NULL, _t('站点统计'), _t('在这里填入站点统计代码，例如百度统计。'));
     $form->addInput($tongjiCode);
+
+    $topAd = new Typecho_Widget_Helper_Form_Element_Text('topAd', NULL, '欢迎光临我的博客！', _t('顶栏公告'), _t('在这里填入一段文字，作为欢迎语或者公告显示在顶栏'));
+    $form->addInput($topAd);
+    
+    $topbarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('topbarBlock', 
+    array('ShowAdmin' => _t('显示登录入口'),
+          'ShowTopAd' => _t('显示顶栏公告')),
+    array('ShowAdmin', 'ShowTopAd'), _t('顶栏显示'),_t('同时不选可隐藏顶栏'));
+    $form->addInput($topbarBlock->multiMode());
+
 }
 
 function themeFields($layout) {
