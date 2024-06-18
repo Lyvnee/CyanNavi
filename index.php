@@ -4,7 +4,7 @@
  * 
  * @package CyansNavi
  * @author Lyvnee
- * @version 1.0.1
+ * @version 1.0.2
  * @license MIT
  * @link https://lyvnee.com
  **/
