@@ -1,7 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
 <div id="footer">
-    &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>&nbsp;|&nbsp;<a href="<?php $this->options->siteUrl('guestbook.html'); ?>" target="_blank">留言</a><?php if($this->options->showICP): ?><span>&nbsp;|&nbsp;<?php $this->options->showICP(); ?></span><?php endif; ?>&nbsp;<<?php timer_stop($this); ?>s> 
+    &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>&nbsp;|&nbsp;<?php _e('由 <a href="http://www.typecho.org">Typecho</a> 强力驱动'); ?>&nbsp;|&nbsp;<a href="<?php $this->options->siteUrl('guestbook.html'); ?>" target="_blank">留言</a><?php if($this->options->showICP): ?><span>&nbsp;|&nbsp;<?php $this->options->showICP(); ?></span><?php endif; ?>&nbsp;<<?php timer_stop($this); ?>s> 
 </div>
 </div>
 
