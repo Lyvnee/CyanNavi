@@ -25,6 +25,7 @@ function themeConfig($form) {
 
 }
 
+if($_SERVER['SCRIPT_NAME']=="/admin/write-post.php"){
 function themeFields($layout) {
     $naviUrl = new Typecho_Widget_Helper_Form_Element_Text('naviUrl', NULL, _t('https://'), _t('网址'), _t('在这里填入网址'));
     $naviUrl->input->setAttribute('style', 'width:100%');
@@ -41,6 +42,7 @@ function themeFields($layout) {
 	$naviCustom = new Typecho_Widget_Helper_Form_Element_Textarea('naviCustom', NULL,NULL, _t('自定义数据'), _t('该项用于用户自定义数据扩展'));
     $naviCustom->input->setAttribute('style', 'width:100%');
     $layout->addItem($naviCustom); 	
+}
 }
 
 function timer_start() {
