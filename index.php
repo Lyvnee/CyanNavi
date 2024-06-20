@@ -4,7 +4,7 @@
  * 
  * @package CyansNavi
  * @author Lyvnee
- * @version 1.0.2
+ * @version 1.0.3
  * @license MIT
  * @link https://lyvnee.com
  **/
@@ -85,13 +85,16 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     <div class="nav-content">
       <?php  $this->widget('Widget_Metas_Category_List')->to($categorys);  ?>
         <div class="jj-list-tit">
-          <?php while ($categorys->next()): ?><?php $categorys->name(); ?> 
-            <ul class="jj-list-con">
-             <?php $this->widget("Widget_Archive@$categorys->mid", "pageSize=99999&type=category", "mid=$categorys->mid")->to($categoryPosts); ?>
+          <?php while ($categorys->next()): ?>
+            <?php if (!in_array($categorys->slug, explode(',',$this->options->hideCategories))): ?>
+              <?php $categorys->name(); ?> 
+              <ul class="jj-list-con">
+              <?php $this->widget("Widget_Archive@$categorys->mid", "pageSize=99999&type=category", "mid=$categorys->mid")->to($categoryPosts); ?>
               <?php while($categoryPosts->next()): ?>
                   <li><a href="<?php $categoryPosts->fields->naviUrl(); ?>" title="<?php $categoryPosts->fields->naviDesc(); ?>" target="_blank" class="jj-list-link" > <?php if($categoryPosts->fields->naviLogo): ?> <img src="<?php $categoryPosts->fields->naviLogo(); ?>" /><?php endif; ?> <?php $categoryPosts->title(); ?> </a></li>
               <?php endwhile; ?>
             </ul>
+            <?php endif; ?>
           <?php endwhile; ?>
 		  </div>
     </div>

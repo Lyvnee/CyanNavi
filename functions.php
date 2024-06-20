@@ -14,6 +14,9 @@ function themeConfig($form) {
     $tongjiCode = new Typecho_Widget_Helper_Form_Element_Textarea('tongjiCode', NULL, NULL, _t('站点统计'), _t('在这里填入站点统计代码，例如百度统计。'));
     $form->addInput($tongjiCode);
 
+    $hideCategories = new Typecho_Widget_Helper_Form_Element_Text('hideCategories', NULL, NULL, _t('导航分类隐藏设置'), _t('在这里填入你要隐藏的导航分类的分类缩略名{slug} ，例如tech。隐藏多个分类请使用英文逗号(,)分隔,例如 tech,life,dream'));
+    $form->addInput($hideCategories);
+        
     $topAd = new Typecho_Widget_Helper_Form_Element_Text('topAd', NULL, '欢迎光临我的博客！', _t('顶栏公告'), _t('在这里填入一段文字，作为欢迎语或者公告显示在顶栏'));
     $form->addInput($topAd);
     
