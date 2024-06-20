@@ -31,7 +31,7 @@ function themeFields($layout) {
     $naviUrl->input->setAttribute('style', 'width:100%');
     $layout->addItem($naviUrl);
 
-    $naviLogo = new Typecho_Widget_Helper_Form_Element_Text('naviLogo', NULL,NULL, _t('网站LOGO'), _t('在这里填入网站logo地址，建议大小20x20px'));
+    $naviLogo = new Typecho_Widget_Helper_Form_Element_Text('naviLogo', NULL,NULL, _t('网站LOGO'), _t('在这里填入网站logo地址，建议大小16x16px'));
     $naviLogo->input->setAttribute('style', 'width:100%');
     $layout->addItem($naviLogo);
 	
